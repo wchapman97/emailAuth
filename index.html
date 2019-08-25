@@ -1,0 +1,166 @@
+<!Doctype html>
+<html>
+<head>
+
+
+  <title>Thumbs-Out User Verification</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Titillium-Web-LightItallic:300,400,500,700" rel="stylesheet">
+
+  <script src="https://use.fontawesome.com/939e9dd52c.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+
+
+  <div class="mainDiv" align="center">
+  <h1 id="msg">Loading...Please stay on this page...</h1>
+
+
+  </div>
+
+
+
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyAlJRV_uaKYXi4t9bdDlU55VI3jU9jtWUw",
+      authDomain: "mu-ridesharing.firebaseapp.com",
+      databaseURL: "https://mu-ridesharing.firebaseio.com",
+      projectId: "mu-ridesharing",
+      storageBucket: "mu-ridesharing.appspot.com",
+      messagingSenderId: "509399610383"
+    };
+    firebase.initializeApp(config);
+  </script>
+
+
+
+      </script>
+
+      <script src="index.js"></script>
+
+      <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+
+
+
+
+var mode = getParameterByName('mode');
+
+var actionCode =  getParameterByName('oobCode');
+
+var apiKey = getParameterByName('apiKey')
+
+
+      // Configure the Firebase SDK.
+
+      var config = {
+        apiKey: "AIzaSyAlJRV_uaKYXi4t9bdDlU55VI3jU9jtWUw",
+        authDomain: "mu-ridesharing.firebaseapp.com",
+        databaseURL: "https://mu-ridesharing.firebaseio.com",
+        projectId: "mu-ridesharing",
+        storageBucket: "mu-ridesharing.appspot.com",
+        messagingSenderId: "509399610383"
+      };
+
+
+
+      // I will handle the email verification system since firebase is incapable
+
+
+
+
+      var app = firebase.initializeApp(config);
+      var auth = app.auth();
+
+      
+
+      firebase.auth().checkActionCode(actionCode)
+                              .then(function(userInfo){
+                              var usersEmail = userInfo.data.email;
+
+                              var ref = firebase.database().ref();
+
+                              ref.child('userInfo').once('value').then(function(snapshot) {
+
+                                snapshot.forEach(function(child) {
+                                  //  window.alert(child.key+": "+child.val());
+                              //    window.alert(child.val().name);
+
+
+                                if(child.val().email == usersEmail){
+
+
+
+                                  var val = child.val()
+
+                                  var postData = {
+                                    name: val.name,
+                                    email: val.email,
+                                    fullName: val.fullName,
+                                    imgURL: val.imgURL,
+                                    id: val.id,
+                                    phone: val.phone,
+                                    verified: "true"
+                                  };
+
+                                ref.child('userInfo').child(child.key).set(postData)
+
+                                var message = document.getElementById("msg").innerHTML = "You Are Verified!!";
+
+
+                                }
+
+
+                                  });
+
+  // ...
+});
+
+
+
+                                });
+
+
+
+      //
+
+
+
+
+
+    }, false);
+
+
+
+
+    function getParameterByName( name ){
+  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+  var regexS = "[\\?&]"+name+"=([^&#]*)";
+  var regex = new RegExp( regexS );
+  var results = regex.exec( window.location.href );
+  if( results == null ){
+
+    var message = document.getElementById("msg").innerHTML = "Something went wrong. Please re-send the verification email in the Thumbs-Out app!";
+
+
+ return "";
+
+  }
+   
+  else
+    return decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+
+    </script>
+      </script>
+
+    </body>
+    </html>
