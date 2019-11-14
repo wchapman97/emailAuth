@@ -85,41 +85,35 @@ var apiKey = getParameterByName('apiKey')
       firebase.auth().checkActionCode(actionCode)
                               .then(function(userInfo){
                               var usersEmail = userInfo.data.email;
-
+                              var parsedEmail = "wchapman97mecom"; //parse this later
                               var ref = firebase.database().ref();
 
-                              ref.child('userInfo').once('value').then(function(snapshot) {
+                              ref.child('AllUserEmails').child(parsedEmail).once('value').then(function(snapshot) {
 
-                                snapshot.forEach(function(child) {
+//                                 snapshot.forEach(function(child) {
                                   //  window.alert(child.key+": "+child.val());
                               //    window.alert(child.val().name);
 
 
-                                if(child.val().email == usersEmail){
+//                                 if(child.val().email == usersEmail){
 
 
 
-                                  var val = child.val()
+                                  var uid = child.val()
 
-                                  var postData = {
-                                    name: val.name,
-                                    email: val.email,
-                                    fullName: val.fullName,
-                                    imgURL: val.imgURL,
-                                    id: val.id,
-                                    phone: val.phone,
-                                    verified: "true"
-                                  };
+                                  
 
-                                ref.child('userInfo').child(child.key).set(postData)
+                                ref.child('Users').child(uid).update({
+                                    "v" : "verified"
+                                })
 
                                 var message = document.getElementById("msg").innerHTML = "You Are Verified!!";
 
 
-                                }
+//                                 }
 
 
-                                  });
+//                                   });
 
   // ...
 });
