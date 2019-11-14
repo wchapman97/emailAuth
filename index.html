@@ -61,24 +61,40 @@ var apiKey = getParameterByName('apiKey')
 
       // Configure the Firebase SDK.
 
-      var config = {
-          apiKey: "AIzaSyBwXLqClZIwiWtf1AGILs-vqfrU-R8rbH4",
-          authDomain: "plus-one-56dd1.firebaseapp.com",
-          databaseURL: "https://plus-one-56dd1.firebaseio.com",
-          projectId: "plus-one-56dd1",
-          storageBucket: "plus-one-56dd1.appspot.com",
-          messagingSenderId: "238101545936"
-      };
+
+  var firebaseConfig = {
+    apiKey: "AIzaSyBwXLqClZIwiWtf1AGILs-vqfrU-R8rbH4",
+    authDomain: "plus-one-56dd1.firebaseapp.com",
+    databaseURL: "https://plus-one-56dd1.firebaseio.com",
+    projectId: "plus-one-56dd1",
+    storageBucket: "plus-one-56dd1.appspot.com",
+    messagingSenderId: "238101545936",
+    appId: "1:238101545936:web:f8f1e95b2e67aca5fe2fd5"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+      
+      
+//       var config = {
+//           apiKey: "AIzaSyBwXLqClZIwiWtf1AGILs-vqfrU-R8rbH4",
+//           authDomain: "plus-one-56dd1.firebaseapp.com",
+//           databaseURL: "https://plus-one-56dd1.firebaseio.com",
+//           projectId: "plus-one-56dd1",
+//           storageBucket: "plus-one-56dd1.appspot.com",
+//           messagingSenderId: "238101545936"
+//       };
 
 
 
-      // I will handle the email verification system since firebase is incapable
+//       // I will handle the email verification system since firebase is incapable
 
 
 
 
-      var app = firebase.initializeApp(config);
+//       var app = firebase.initializeApp(config);
       var auth = app.auth();
+      
+      
 
       
 
