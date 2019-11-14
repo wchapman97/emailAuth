@@ -87,7 +87,7 @@ var apiKey = getParameterByName('apiKey')
                               var usersEmail = userInfo.data.email;
                               var parsedEmail = "wchapman97mecom"; //parse this later
                               var ref = firebase.database().ref();
-
+                              alert(usersEmail);
                               ref.child('AllUserEmails').child(parsedEmail).once('value').then(function(snapshot) {
 
 //                                 snapshot.forEach(function(child) {
