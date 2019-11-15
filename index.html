@@ -92,7 +92,7 @@ var apiKey = getParameterByName('apiKey')
                               var usersEmail = userInfo.data.email;
              
                               var parsedEmail = usersEmail.replace(/[^\w\s]/gi, '');
-
+                                  alert(parsedEmail);
 //                               window.alert(parsedEmail);
                               var ref = firebase.database().ref();
     
