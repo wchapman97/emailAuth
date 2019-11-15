@@ -90,7 +90,8 @@ var apiKey = getParameterByName('apiKey')
                               .then(function(userInfo){
                               var usersEmail = userInfo.data.email;
              
-                              var parsedEmail = usersEmail.replaceAll("[^a-zA-Z0-9]", "").toLowerCase(); //parse this later
+                              var parsedEmail = usersEmail.replaceAll("[^a-zA-Z0-9]", "").toLowerCase(); 
+                              alert (parsedEmail);
                               var ref = firebase.database().ref();
                     
                               ref.child('AllUsersEmails').child(parsedEmail).once('value').then(function(snapshot) {
