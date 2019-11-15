@@ -1,6 +1,6 @@
 body {
 
-      background: #0055a4;
+      background: #333366;
       color: #333;
       font-size: 14px;
       font-family: 'Roboto', sans-serif;
@@ -27,7 +27,7 @@ padding: 10px;
 }
 
 .mainDiv {
-background: #0055a4;
+background: #333366;
 padding: 20px;
 width: 450px;
 margin: 0px auto;
