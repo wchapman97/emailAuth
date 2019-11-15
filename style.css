@@ -11,7 +11,7 @@ body {
 }
 
 * {
-
+  
   box-sizing: border-box;
   font-family: 'Raleway', sans-serif;
   margin: 0;
@@ -28,7 +28,7 @@ padding: 10px;
 }
 
 .mainDiv {
-background: #333366;
+background: #333333;
 padding: 20px;
 width: 450px;
 margin: 0px auto;
