@@ -44,7 +44,7 @@ h1{
 
 textarea{
   border: 0px;
-  background: #ffffff;
+  background: rgba(255, 0, 84, 164);
   padding: 20px 0p;
   outline:  none;
   width: 100%;
@@ -55,7 +55,7 @@ textarea{
 
 button {
 
-background: #3333cc;
+background: rgba(255, 0, 84, 164);
 color: #fff;
 position: relative;
 top: 50px;
