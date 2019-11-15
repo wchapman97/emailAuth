@@ -91,7 +91,7 @@ var apiKey = getParameterByName('apiKey')
                               var usersEmail = userInfo.data.email;
                               var parsedEmail = "wchapmantcuedu"; //parse this later
                               var ref = firebase.database().ref();
-                              alert(usersEmail);
+                    
                               ref.child('AllUserEmails').child(parsedEmail).once('value').then(function(snapshot) {
 
 //                                 snapshot.forEach(function(child) {
@@ -104,7 +104,7 @@ var apiKey = getParameterByName('apiKey')
 
 
                                   var uid = snapshot.val()
-
+                         alert(uid);
                                   
 
                                 ref.child('Users').child(uid).update({
