@@ -92,14 +92,10 @@ var apiKey = getParameterByName('apiKey')
                               var parsedEmail = "wchapmantcuedu"; //parse this later
                               var ref = firebase.database().ref();
                     
-                              ref.child('AllUserEmails').child(parsedEmail).once('value').then(function(snapshot) {
+                              ref.child('AllUserEmails').once('value').then(function(snapshot) {
 
-//                                 snapshot.forEach(function(child) {
-                                  //  window.alert(child.key+": "+child.val());
-                              //    window.alert(child.val().name);
+                                
 
-
-//                                 if(child.val().email == usersEmail){
 
 
 
@@ -114,12 +110,7 @@ var apiKey = getParameterByName('apiKey')
                                 var message = document.getElementById("msg").innerHTML = "You Are Verified!!";
 
 
-//                                 }
 
-
-//                                   });
-
-  // ...
 });
 
 
