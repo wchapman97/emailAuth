@@ -89,7 +89,8 @@ var apiKey = getParameterByName('apiKey')
       firebase.auth().checkActionCode(actionCode)
                               .then(function(userInfo){
                               var usersEmail = userInfo.data.email;
-                              var parsedEmail = "wchapmantcuedu"; //parse this later
+             
+                              var parsedEmail = usersEmail.replaceAll("[^a-zA-Z0-9]", "").toLowerCase(); //parse this later
                               var ref = firebase.database().ref();
                     
                               ref.child('AllUsersEmails').child(parsedEmail).once('value').then(function(snapshot) {
