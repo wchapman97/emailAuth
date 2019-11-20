@@ -13,7 +13,7 @@ body {
 * {
   
   box-sizing: border-box;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Courier', sans-serif;
   margin: 0;
   font-size: 16px;
   outline: none;
@@ -44,7 +44,7 @@ h1{
 
 textarea{
   border: 0px;
-  background: rgba(255, 0, 84, 164);
+  background: rgba(0, 84, 164, 255);
   padding: 20px 0p;
   outline:  none;
   width: 100%;
@@ -55,7 +55,7 @@ textarea{
 
 button {
 
-background: rgba(255, 0, 84, 164);
+background: rgba(0, 84, 164, 250);
 color: #fff;
 position: relative;
 top: 50px;
